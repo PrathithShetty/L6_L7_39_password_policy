@@ -1,0 +1,17 @@
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab6> coverage run --branch -m pytest BranchCoverageTest_PES2UG24AM121_password_policy.py
+======================================= test session starts =======================================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\shett\L6_L7_39_password_policy\lab6
+plugins: hypothesis-6.170.17
+collected 40 items
+
+BranchCoverageTest_PES2UG24AM121_password_policy.py ........................................ [100%]
+
+======================================= 40 passed in 1.14s ========================================
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab6> coverage report -m
+Name                                                  Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------------------------------------------
+BranchCoverageTest_PES2UG24AM121_password_policy.py      36      0      0      0   100%
+password_policy.py                                       47      0     36      0   100%
+-------------------------------------------------------------------------------------------------
+TOTAL                                                    83      0     36      0   100%
