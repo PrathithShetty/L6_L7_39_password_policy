@@ -1,0 +1,54 @@
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> 'Secret1!', 'alice:Secret1', 'abc123' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: letter
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): User and Password: ('alice', 'Secret1')
+
+==== Running digit_ratio ====
+Enter a password to measure: Digit Ratio: 0.5
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> '' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: Traceback (most recent call last):
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 33, in <module>
+    main()
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 19, in main
+    result = first_character_type(user_input)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 2, in first_character_type
+    ch = pw[0]
+         ~~^^^
+IndexError: string index out of range
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> 'Secret1!', 'alice:pa:ss' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: letter
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): Traceback (most recent call last):
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 33, in <module>
+    main()
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 24, in main
+    result = split_credentials(user_input)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 10, in split_credentials
+    user, password = text.split(':')
+    ^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> 'Secret1!', 'alice:Secret1', '' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: letter
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): User and Password: ('alice', 'Secret1')
+
+==== Running digit_ratio ====
+Enter a password to measure: Traceback (most recent call last):
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 33, in <module>
+    main()
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 29, in main
+    result = digit_ratio(user_input)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 14, in digit_ratio
+    return sum(c.isdigit() for c in pw) / len(pw)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+ZeroDivisionError: division by zero

@@ -1,0 +1,352 @@
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> pytest test_password_policy.py
+============================================ test session starts ============================================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\shett\L6_L7_39_password_policy\lab7
+plugins: hypothesis-6.170.17
+collected 11 items
+
+test_password_policy.py F.FFFFFF..F                                                                    [100%]
+
+================================================= FAILURES ==================================================
+____________________________________ test_first_character_type_no_crash _____________________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 25, in test_first_character_type_no_crash
+  |     def test_first_character_type_no_crash(s):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 27, in test_first_character_type_no_crash
+    |     result = first_character_type(s)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 2, in first_character_type
+    |     ch = pw[0]
+    |          ~~^^^
+    | IndexError: string index out of range
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 29, in test_first_character_type_no_crash
+    |     assert False, f"first_character_type crashed with: {e!r}"
+    | AssertionError: first_character_type crashed with: IndexError('string index out of range')
+    | assert False
+    | Failing test case: test_first_character_type_no_crash(
+    |     s='',
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py:28
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 27, in test_first_character_type_no_crash
+    |     result = first_character_type(s)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 2, in first_character_type
+    |     ch = pw[0]
+    |          ~~^^^
+    | TypeError: 'NoneType' object is not subscriptable
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 29, in test_first_character_type_no_crash
+    |     assert False, f"first_character_type crashed with: {e!r}"
+    | AssertionError: first_character_type crashed with: TypeError("'NoneType' object is not subscriptable")
+    | assert False
+    | Failing test case: test_first_character_type_no_crash(
+    |     s=None,
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py:28
+    +------------------------------------
+_______________________________ test_first_character_type_rejects_non_strings _______________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 45, in test_first_character_type_rejects_non_strings
+  |     def test_first_character_type_rejects_non_strings(value):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 5 distinct failures. (5 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 46, in test_first_character_type_rejects_non_strings
+    |     assert first_character_type(value) == "invalid"
+    | AssertionError: assert 'symbol' == 'invalid'
+    |   
+    |   - invalid
+    |   + symbol
+    | Failing test case: test_first_character_type_rejects_non_strings(
+    |     value=[''],
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 46, in test_first_character_type_rejects_non_strings
+    |     assert first_character_type(value) == "invalid"
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 2, in first_character_type
+    |     ch = pw[0]
+    |          ~~^^^
+    | KeyError: 0
+    | Failing test case: test_first_character_type_rejects_non_strings(
+    |     value={},
+    | )
+    +---------------- 3 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 46, in test_first_character_type_rejects_non_strings
+    |     assert first_character_type(value) == "invalid"
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 3, in first_character_type
+    |     if ch.isdigit():
+    |        ^^^^^^^^^^
+    | AttributeError: 'int' object has no attribute 'isdigit'
+    | Failing test case: test_first_character_type_rejects_non_strings(
+    |     value=b'\x00',
+    | )
+    +---------------- 4 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 46, in test_first_character_type_rejects_non_strings
+    |     assert first_character_type(value) == "invalid"
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 2, in first_character_type
+    |     ch = pw[0]
+    |          ~~^^^
+    | IndexError: index out of range
+    | Failing test case: test_first_character_type_rejects_non_strings(
+    |     value=b'',
+    | )
+    +---------------- 5 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 46, in test_first_character_type_rejects_non_strings
+    |     assert first_character_type(value) == "invalid"
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 2, in first_character_type
+    |     ch = pw[0]
+    |          ~~^^^
+    | TypeError: 'int' object is not subscriptable
+    | Failing test case: test_first_character_type_rejects_non_strings(
+    |     value=0,  # or any other generated value
+    | )
+    +------------------------------------
+______________________________________ test_split_credentials_no_crash ______________________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 52, in test_split_credentials_no_crash
+  |     def test_split_credentials_no_crash(s):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 54, in test_split_credentials_no_crash
+    |     result = split_credentials(s)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 10, in split_credentials
+    |     user, password = text.split(':')
+    |     ^^^^^^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 56, in test_split_credentials_no_crash
+    |     assert False, f"split_credentials crashed with: {e!r}"
+    | AssertionError: split_credentials crashed with: ValueError('not enough values to unpack (expected 2, got 1)')
+    | assert False
+    | Failing test case: test_split_credentials_no_crash(
+    |     s='',
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py:55
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 54, in test_split_credentials_no_crash
+    |     result = split_credentials(s)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 10, in split_credentials
+    |     user, password = text.split(':')
+    |                      ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 56, in test_split_credentials_no_crash
+    |     assert False, f"split_credentials crashed with: {e!r}"
+    | AssertionError: split_credentials crashed with: AttributeError("'NoneType' object has no attribute 'split'")
+    | assert False
+    | Failing test case: test_split_credentials_no_crash(
+    |     s=None,
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py:55
+    +------------------------------------
+_____________________________________ test_split_credentials_round_trip _____________________________________
+
+    @given(USERS, PASSWORDS)
+>   def test_split_credentials_round_trip(user, password):
+                   ^^^
+
+test_password_policy.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_password_policy.py:63: in test_split_credentials_round_trip
+    assert split_credentials(f"{user}:{password}") == (user.strip(), password.strip())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+text = '0::'
+
+    def split_credentials(text):
+>       user, password = text.split(':')
+        ^^^^^^^^^^^^^^
+E       ValueError: too many values to unpack (expected 2)
+E       Failing test case: test_split_credentials_round_trip(
+E           user='0',  # or any other generated value
+E           password=':',
+E       )
+
+password_policy.py:10: ValueError
+_____________________________ test_split_credentials_without_colon_is_rejected ______________________________
+
+    @given(st.text(alphabet=NO_COLON))
+>   def test_split_credentials_without_colon_is_rejected(s):
+                   ^^^
+
+test_password_policy.py:67: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_password_policy.py:68: in test_split_credentials_without_colon_is_rejected
+    assert split_credentials(s) is None
+           ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+text = ''
+
+    def split_credentials(text):
+>       user, password = text.split(':')
+        ^^^^^^^^^^^^^^
+E       ValueError: not enough values to unpack (expected 2, got 1)
+E       Failing test case: test_split_credentials_without_colon_is_rejected(
+E           s='',  # or any other generated value
+E       )
+
+password_policy.py:10: ValueError
+_________________________ test_split_credentials_blank_user_or_password_is_rejected _________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 72, in test_split_credentials_blank_user_or_password_is_rejected
+  |     def test_split_credentials_blank_user_or_password_is_rejected(blank, user, password):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 73, in test_split_credentials_blank_user_or_password_is_rejected
+    |     assert split_credentials(f"{blank}:{password}") is None
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 10, in split_credentials
+    |     user, password = text.split(':')
+    |     ^^^^^^^^^^^^^^
+    | ValueError: too many values to unpack (expected 2)
+    | Failing test case: test_split_credentials_blank_user_or_password_is_rejected(
+    |     # The test always failed when commented parts were varied together.
+    |     blank='',  # or any other generated value
+    |     user='0',  # or any other generated value
+    |     password=':',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 73, in test_split_credentials_blank_user_or_password_is_rejected
+    |     assert split_credentials(f"{blank}:{password}") is None
+    | AssertionError: assert ('', '0') is None
+    |  +  where ('', '0') = split_credentials(':0')
+    | Failing test case: test_split_credentials_blank_user_or_password_is_rejected(
+    |     # The test always failed when commented parts were varied together.
+    |     blank='',  # or any other generated value
+    |     user='0',  # or any other generated value
+    |     password='0',  # or any other generated value
+    | )
+    +------------------------------------
+_________________________________________ test_digit_ratio_no_crash _________________________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 80, in test_digit_ratio_no_crash
+  |     def test_digit_ratio_no_crash(s):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 82, in test_digit_ratio_no_crash
+    |     result = digit_ratio(s)
+    |              ^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 14, in digit_ratio
+    |     return sum(c.isdigit() for c in pw) / len(pw)
+    |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+    | ZeroDivisionError: division by zero
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 84, in test_digit_ratio_no_crash
+    |     assert False, f"digit_ratio crashed with: {e!r}"
+    | AssertionError: digit_ratio crashed with: ZeroDivisionError('division by zero')
+    | assert False
+    | Failing test case: test_digit_ratio_no_crash(
+    |     s='',
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py:83
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 82, in test_digit_ratio_no_crash
+    |     result = digit_ratio(s)
+    |              ^^^^^^^^^^^^^^
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\password_policy.py", line 14, in digit_ratio
+    |     return sum(c.isdigit() for c in pw) / len(pw)
+    |                                     ^^
+    | TypeError: 'NoneType' object is not iterable
+    | 
+    | During handling of the above exception, another exception occurred:
+    | 
+    | Traceback (most recent call last):
+    |   File "C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py", line 84, in test_digit_ratio_no_crash
+    |     assert False, f"digit_ratio crashed with: {e!r}"
+    | AssertionError: digit_ratio crashed with: TypeError("'NoneType' object is not iterable")
+    | assert False
+    | Failing test case: test_digit_ratio_no_crash(
+    |     s=None,
+    | )
+    | Explanation:
+    |     These lines were always and only run by failing test cases:
+    |         C:\Users\shett\L6_L7_39_password_policy\lab7\test_password_policy.py:83
+    +------------------------------------
+__________________________________ test_digit_ratio_of_non_string_is_zero ___________________________________
+
+    @given(NON_STRINGS)
+>   def test_digit_ratio_of_non_string_is_zero(value):
+                   ^^^
+
+test_password_policy.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_password_policy.py:100: in test_digit_ratio_of_non_string_is_zero
+    assert digit_ratio(value) == 0.0
+           ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+pw = 0
+
+    def digit_ratio(pw):
+>       return sum(c.isdigit() for c in pw) / len(pw)
+                                        ^^
+E       TypeError: 'int' object is not iterable
+E       Failing test case: test_digit_ratio_of_non_string_is_zero(
+E           value=0,
+E       )
+
+password_policy.py:14: TypeError
+========================================== short test summary info ==========================================
+FAILED test_password_policy.py::test_first_character_type_no_crash - ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+FAILED test_password_policy.py::test_first_character_type_rejects_non_strings - ExceptionGroup: Hypothesis found 5 distinct failures. (5 sub-exceptions)
+FAILED test_password_policy.py::test_split_credentials_no_crash - ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+FAILED test_password_policy.py::test_split_credentials_round_trip - ValueError: too many values to unpack (expected 2)
+FAILED test_password_policy.py::test_split_credentials_without_colon_is_rejected - ValueError: not enough values to unpack (expected 2, got 1)
+FAILED test_password_policy.py::test_split_credentials_blank_user_or_password_is_rejected - ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+FAILED test_password_policy.py::test_digit_ratio_no_crash - ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+FAILED test_password_policy.py::test_digit_ratio_of_non_string_is_zero - TypeError: 'int' object is not iterable
+======================================= 8 failed, 3 passed in 15.11s ========================================
