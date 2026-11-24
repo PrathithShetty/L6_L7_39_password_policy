@@ -1,0 +1,22 @@
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> pytest test_password_policy.py -v
+============================================ test session starts ============================================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\shett\L6_L7_39_password_policy\venv\Scripts\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\shett\L6_L7_39_password_policy\lab7
+plugins: hypothesis-6.170.17
+collecting ... collected 11 items
+
+test_password_policy.py::test_first_character_type_no_crash PASSED                                     [  9%]
+test_password_policy.py::test_first_character_type_classifies_first_char PASSED                        [ 18%]
+test_password_policy.py::test_first_character_type_rejects_non_strings PASSED                          [ 27%]
+test_password_policy.py::test_split_credentials_no_crash PASSED                                        [ 36%]
+test_password_policy.py::test_split_credentials_round_trip PASSED                                      [ 45%]
+test_password_policy.py::test_split_credentials_without_colon_is_rejected PASSED                       [ 54%]
+test_password_policy.py::test_split_credentials_blank_user_or_password_is_rejected PASSED              [ 63%]
+test_password_policy.py::test_digit_ratio_no_crash PASSED                                              [ 72%]
+test_password_policy.py::test_digit_ratio_matches_definition PASSED                                    [ 81%]
+test_password_policy.py::test_digit_ratio_of_only_digits_is_one PASSED                                 [ 90%]
+test_password_policy.py::test_digit_ratio_of_non_string_is_zero PASSED                                 [100%]
+
+============================================ 11 passed in 15.64s ============================================

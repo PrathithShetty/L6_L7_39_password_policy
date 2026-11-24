@@ -1,0 +1,39 @@
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> 'Secret1!', 'alice:Secret1', 'abc123' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: letter
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): User and Password: ('alice', 'Secret1')
+
+==== Running digit_ratio ====
+Enter a password to measure: Digit Ratio: 0.5
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> '' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: empty
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): 
+User and Password: invalid input, expected user:password
+
+==== Running digit_ratio ====
+Enter a password to measure: 
+Digit Ratio: 0.0
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> 'Secret1!', 'alice:pa:ss' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: letter
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): User and Password: ('alice', 'pa:ss')
+
+==== Running digit_ratio ====
+Enter a password to measure: 
+Digit Ratio: 0.0
+(venv) PS C:\Users\shett\L6_L7_39_password_policy\lab7> 'Secret1!', 'alice:Secret1', '' | python password_policy.py
+==== Running first_character_type ====
+Enter a password: First Character Type: letter
+
+==== Running split_credentials ====
+Enter user:password (e.g. alice:Secret1): User and Password: ('alice', 'Secret1')
+
+==== Running digit_ratio ====
+Enter a password to measure: Digit Ratio: 0.0
